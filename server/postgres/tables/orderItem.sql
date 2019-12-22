@@ -1,0 +1,3 @@
+BEGIN TRANSACTION;
+create table "order_item" ("id" serial primary key, "order_id" integer, "pizza_id" integer, "size_id" integer, "quantity" integer, "total_price" decimal(12, 2), "created_at" timestamptz, "updated_at" timestamptz); alter table "order_item" add constraint "order_item_order_id_foreign" foreign key ("order_id") references "placed_order" ("id"); alter table "order_item" add constraint "order_item_pizza_id_foreign" foreign key ("pizza_id") references "pizza" ("id"); alter table "order_item" add constraint "order_item_size_id_foreign" foreign key ("size_id") references "pizza_size" ("id");
+COMMIT;

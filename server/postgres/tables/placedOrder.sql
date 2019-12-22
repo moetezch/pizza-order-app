@@ -1,0 +1,3 @@
+BEGIN TRANSACTION;
+create table "placed_order" ("id" serial primary key, "customer_id" integer, "status" text check ("status" in ('new', 'preparing', 'delivering', 'delivered')), "total_price" decimal(12, 2), "created_at" timestamptz, "updated_at" timestamptz); alter table "placed_order" add constraint "placed_order_customer_id_foreign" foreign key ("customer_id") references "customer" ("id");
+COMMIT;

@@ -1,0 +1,27 @@
+version: '3.7'
+services:
+  api:
+    container_name: backend
+    build: ./
+    command: yarn server
+    working_dir: /usr/src/app
+    environment:
+      POSTGRES_USER: me
+      POSTGRES_PASSWORD: enter
+      POSTGRES_DB: pizza-app
+      POSTGRES_HOST: postgres
+    links:
+      - postgres
+    ports:
+      - '8641:8641'
+    volumes:
+      - .:/usr/src/app
+  postgres:
+    environment:
+      POSTGRES_USER: me
+      POSTGRES_PASSWORD: enter
+      POSTGRES_DB: pizza-app
+      POSTGRES_HOST: postgres
+    build: ./postgres
+    ports:
+      - '5432:5432'

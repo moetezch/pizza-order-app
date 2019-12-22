@@ -1,0 +1,16 @@
+{
+  "name": "pizza",
+  "version": "1.0.0",
+  "description": "code test",
+  "main": "index.js",
+  "author": "moetez <contact@moetez.me>",
+  "license": "MIT",
+  "scripts": {
+    "client": "yarn --cwd ./client start",
+    "server": "yarn --cwd ./server server",
+    "dev": "concurrently \"yarn server\" \"yarn client\""
+  },
+  "dependencies": {
+    "concurrently": "^5.0.2"
+  }
+}
